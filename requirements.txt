@@ -1,0 +1,10 @@
+transformers 
+sentencepiece 
+accelerate 
+bitsandbytes
+openai
+pillow
+opencv-python
+pyyaml
+diffusers
+ultralytics

@@ -1,0 +1,29 @@
+root_dir: "results/sofa_a50_p15_v2"  # Set the root directory for all paths
+
+segmentation:
+  method: "sam"  
+  model: "facebook/sam-vit-base"  # Specify model for the segmentation method
+
+pose_editing:
+  method: "zero123"  
+
+inpainting:
+  method: "stable_diffusion"
+  
+input_image: "./sofa.jpg"
+inpaint_output_image: "${root_dir}/inpaint_output_image.png"
+mask_image: "${root_dir}/segmentation_mask.png"
+segmented_image: "${root_dir}/segmented_rgba.png"
+pose_rotated_mask: "${root_dir}/pose_rotated_object_mask.png"
+pose_edited_image: "${root_dir}/pose_edited_image.png"
+inpaint_mask: "${root_dir}/inpaint_mask.png"
+
+# User input for LLM-based entity extraction
+user_input: "Rotate the sofa chair by azimuth 50 degrees and polar 15 degrees."
+
+# Optional quantization flag for LLM
+quantize: False  # Set to True to enable 8-bit quantization
+
+prompt: "Strictly restore the missing parts of white wall, floor, borders of a single chair sofa facing sideways to complete the scene. high resolution, smooth sharp and consistent"
+negative_prompt: "artifacts,chair,sofa,furniture"
+guidance_scale: 8.0
